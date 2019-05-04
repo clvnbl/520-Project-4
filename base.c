@@ -51,7 +51,7 @@ char * LargestCommonSubstring()
 	int outer;
 	int string;
 
-	char result[wiki_string];
+	//char result[wiki_string];
 	//printf("hello!!!\n");
 	//fflush(stdout);
 	//gets the string

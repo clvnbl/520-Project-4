@@ -52,7 +52,7 @@ char * LargestCommonSubstring()
 	int outer;
 	int string;
 
-	char result[wiki_string];
+	//char result[wiki_string];
 	//printf("hello!!!\n");
 	//fflush(stdout);
 	#pragma omp parallel private(inner, outer, string, result) //num_threads(2) 
