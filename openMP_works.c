@@ -57,42 +57,42 @@ char * LargestCommonSubstring()
 	//fflush(stdout);
 	#pragma omp parallel private(inner, outer, string, result) //num_threads(2) 
 	{
-	//gets the string
-	for(outer = 0; outer < 1000000; outer++)
-	{
-		//printf("loop: %d\n",outer);
-		//fflush(stdout);
-		int m = strlen(wiki_entry[outer]);
-		int n = strlen(wiki_entry[outer+1]);
-		
-		//printf("----------------------------------------------------------------------------------------\n");
-		//printf("string from: %d to %d\n\n",outer+1,outer+2);
-		findThings(wiki_entry[outer],wiki_entry[outer+1],m,n,outer);
-		//printf("in string1: %s\n",wiki_entry[outer]);
-		//printf("in string2: %s\n\n\n\n",wiki_entry[outer+1]);
-
-		//printf("string1 length: %d\n",m);	
-		//printf("string2 length: %d\n",n);	
-		
-
-		//char buffer[10000];
-		//sprintf(buffer,"thing: %s\n\n",string2);
-		//printf("%s",buffer);
-		/*for(outer = 0; outer < wiki_string; outer++)
+		//gets the string
+		for(outer = 0; outer < 1000000; outer++)
 		{
-			if(string1[outer] == string2[outer])
-			{
-				strcat(result,string1[outer]);
-			}
-		}*/
-		
-
-		//gets the character from the first string
-		/*for(outer = 0; outer < wiki_string; outer++)
-		{
+			//printf("loop: %d\n",outer);
+			//fflush(stdout);
+			int m = strlen(wiki_entry[outer]);
+			int n = strlen(wiki_entry[outer+1]);
 			
-		}*/
-	}
+			//printf("----------------------------------------------------------------------------------------\n");
+			//printf("string from: %d to %d\n\n",outer+1,outer+2);
+			findThings(wiki_entry[outer],wiki_entry[outer+1],m,n,outer);
+			//printf("in string1: %s\n",wiki_entry[outer]);
+			//printf("in string2: %s\n\n\n\n",wiki_entry[outer+1]);
+
+			//printf("string1 length: %d\n",m);	
+			//printf("string2 length: %d\n",n);	
+			
+
+			//char buffer[10000];
+			//sprintf(buffer,"thing: %s\n\n",string2);
+			//printf("%s",buffer);
+			/*for(outer = 0; outer < wiki_string; outer++)
+			{
+				if(string1[outer] == string2[outer])
+				{
+					strcat(result,string1[outer]);
+				}
+			}*/
+			
+
+			//gets the character from the first string
+			/*for(outer = 0; outer < wiki_string; outer++)
+			{
+				
+			}*/
+		}
 	}
 	//printf("output of result:  %s\n", result);
 }
@@ -150,22 +150,22 @@ int findThings(char* string1, char* string2, int m, int n,int counter)
 	
 	#pragma omp critical 
 	{
-	//printf("before maloc\n");
-	char* resultStr = (char*)malloc((len + 1) * sizeof(char)); 
+		//printf("before maloc\n");
+		char* resultStr = (char*)malloc((len + 1) * sizeof(char)); 
 
-	while (LCSuf[row][col] != 0)
-	{
-		resultStr[--len] = string1[row - 1];
-		row--;
-		col--;
-	}
-	//printf("most common substring: %s\n\n",resultStr);
-	
+		while (LCSuf[row][col] != 0)
+		{
+			resultStr[--len] = string1[row - 1];
+			row--;
+			col--;
+		}
+		//printf("most common substring: %s\n\n",resultStr);
+		
 
-	//char integer[32];
-        //sprintf(integer, "%d: ", counter);
-	//strcat(results_array[counter],integer);
-	
+		//char integer[32];
+			//sprintf(integer, "%d: ", counter);
+		//strcat(results_array[counter],integer);
+		
 		strcpy(results_array[counter],resultStr);
 	}
 	//free(resultStr);	
