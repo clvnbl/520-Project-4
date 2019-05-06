@@ -2,6 +2,6 @@
 gcc -o openMP openMP.c -fopenmp
 sbatch./openMP.sh
 
-gcc -o pthread pthread.c -fopenmp
+gcc -o pthread pthread.c -pthread
 sbatch ./pthread.sh
 
