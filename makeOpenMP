@@ -1,0 +1,3 @@
+#!/bin/bash
+gcc -o openMP openMP.c -fopenmp
+sbatch ./openMP.sh

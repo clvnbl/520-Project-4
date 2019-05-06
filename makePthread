@@ -1,0 +1,3 @@
+#!/bin/bash
+gcc -o pthread pthread.c -fopenmp
+sbatch ./pthread.sh

@@ -1,0 +1,7 @@
+#!/bin/bash
+gcc -o openMP openMP.c -fopenmp
+sbatch./openMP.sh
+
+gcc -o pthread pthread.c -fopenmp
+sbatch ./pthread.sh
+
